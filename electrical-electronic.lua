@@ -3,84 +3,87 @@ local S = minetest.get_translator("basic_materials")
 
 -- items
 
-minetest.register_craftitem("basic_materials:silicon", {
+minetest.register_craftitem("hades_extramaterials:silicon", {
 	description = S("Silicon lump"),
 	inventory_image = "basic_materials_silicon.png",
 })
 
-minetest.register_craftitem("basic_materials:ic", {
+minetest.register_craftitem("hades_extramaterials:ic", {
 	description = S("Simple Integrated Circuit"),
 	inventory_image = "basic_materials_ic.png",
 })
 
-minetest.register_craftitem("basic_materials:motor", {
+minetest.register_craftitem("hades_extramaterials:motor", {
 	description = S("Simple Motor"),
 	inventory_image = "basic_materials_motor.png",
 })
 
-minetest.register_craftitem("basic_materials:heating_element", {
+minetest.register_craftitem("hades_extramaterials:heating_element", {
 	description = S("Heating element"),
 	inventory_image = "basic_materials_heating_element.png",
 })
 
-minetest.register_craftitem("basic_materials:energy_crystal_simple", {
+minetest.register_craftitem("hades_extramaterials:energy_crystal_simple", {
 	description = S("Simple energy crystal"),
 	inventory_image = "basic_materials_energy_crystal.png",
 })
 
 -- crafts
 
+--[[
+-- included in hades_materials
 minetest.register_craft( {
 	output = "mesecons_materials:silicon 4",
 	recipe = {
-		{ "default:sand", "default:sand" },
-		{ "default:sand", "default:steel_ingot" },
+		{ "hades_core:fertile_sand", "hades_core:fertile_sand" },
+		{ "hades_core:fertile_sand", "hades_core:steel_ingot" },
 	},
 })
+--]]
 
 minetest.register_craft( {
-	output = "basic_materials:ic 4",
+	output = "hades_extramaterials:ic 4",
 	recipe = {
 		{ "mesecons_materials:silicon", "mesecons_materials:silicon" },
-		{ "mesecons_materials:silicon", "default:copper_ingot" },
+		{ "mesecons_materials:silicon", "hades_core:copper_ingot" },
 	},
 })
 
 minetest.register_craft( {
-    output = "basic_materials:motor 2",
+    output = "hades_extramaterials:motor 2",
     recipe = {
-		{ "default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet" },
-		{ "default:copper_ingot",          "default:steel_ingot",         "default:steel_ingot" },
-		{ "default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet" }
+		{ "hades_core:mese_crystal_fragment", "hades_extramaterials:copper_wire", "hades_extramaterials:plastic_sheet" },
+		{ "hades_core:copper_ingot",          "hades_core:steel_ingot",         "hades_core:steel_ingot" },
+		{ "hades_core:mese_crystal_fragment", "hades_extramaterials:copper_wire", "hades_extramaterials:plastic_sheet" }
     },
 	replacements = {
-		{ "basic_materials:copper_wire", "basic_materials:empty_spool" },
-		{ "basic_materials:copper_wire", "basic_materials:empty_spool" },
+		{ "hades_extramaterials:copper_wire", "hades_extramaterials:empty_spool" },
+		{ "hades_extramaterials:copper_wire", "hades_extramaterials:empty_spool" },
 	}
 })
 
 minetest.register_craft( {
-    output = "basic_materials:heating_element 2",
+    output = "hades_extramaterials:heating_element 2",
     recipe = {
-		{ "default:copper_ingot", "default:mese_crystal_fragment", "default:copper_ingot" }
+		{ "hades_core:copper_ingot", "hades_core:mese_crystal_fragment", "hades_core:copper_ingot" }
     },
 })
 
 minetest.register_craft({
 	--type = "shapeless",
-	output = "basic_materials:energy_crystal_simple 2",
+	output = "hades_extramaterials:energy_crystal_simple 2",
 	recipe = {
-		{ "default:mese_crystal_fragment", "default:torch", "default:mese_crystal_fragment" },
-		{ "default:diamond", "default:gold_ingot", "default:diamond" }
+		{ "hades_core:mese_crystal_fragment", "hades_torches:torch", "hades_core:mese_crystal_fragment" },
+		{ "hades_core:diamond", "hades_core:gold_ingot", "hades_core:diamond" }
 	},
 })
 
 -- aliases
 
-minetest.register_alias("homedecor:ic",                     "basic_materials:ic")
-minetest.register_alias("homedecor:motor",                  "basic_materials:motor")
-minetest.register_alias("technic:motor",                    "basic_materials:motor")
-minetest.register_alias("homedecor:heating_element",        "basic_materials:heating_element")
-minetest.register_alias("homedecor:power_crystal",          "basic_materials:energy_crystal_simple")
+minetest.register_alias("homedecor:ic",                     "hades_extramaterials:ic")
+minetest.register_alias("homedecor:motor",                  "hades_extramaterials:motor")
+minetest.register_alias("technic:motor",                    "hades_extramaterials:motor")
+minetest.register_alias("homedecor:heating_element",        "hades_extramaterials:heating_element")
+minetest.register_alias("homedecor:power_crystal",          "hades_extramaterials:energy_crystal_simple")
 
-minetest.register_alias_force("mesecons_materials:silicon", "basic_materials:silicon")
+minetest.register_alias_force("mesecons_materials:silicon", "hades_extramaterials:silicon")

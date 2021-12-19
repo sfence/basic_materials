@@ -3,10 +3,13 @@ local S = minetest.get_translator("basic_materials")
 
 -- items
 
+minetest.register_alias("hades_extramaterials:silicon", "hades_materials:silicon");
+--[[
 minetest.register_craftitem("hades_extramaterials:silicon", {
 	description = S("Silicon lump"),
 	inventory_image = "basic_materials_silicon.png",
 })
+--]]
 
 minetest.register_craftitem("hades_extramaterials:ic", {
 	description = S("Simple Integrated Circuit"),
